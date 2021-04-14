@@ -40,6 +40,16 @@ __  ____  __  _____   ___  __ ____  ______
         at io.quarkus.runner.GeneratedMain.main(GeneratedMain.zig:29)
 ```
 
+
+### Solution
+Enable SSL native support manually as quarkus-oidc does not trigger it automatically (https://quarkus.io/guides/native-and-ssl)
+```
+<properties>
+     <quarkus.package.type>native</quarkus.package.type>
+     <quarkus.native.additional-build-args>-H:EnableURLProtocols=https</quarkus.native.additional-build-args>
+</properties>
+```
+
 ### Environment
 * RHEL 8.3
 * Apache Maven 3.6.3
